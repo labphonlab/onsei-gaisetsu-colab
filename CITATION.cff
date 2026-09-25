@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "音声学概説 Colab Labs"
+message: "本教材を利用した場合は、書籍とこのソフトウェアを引用してください。"
+type: software
+version: 1.0.0
+authors:
+  - family-names: Ishihara
+    given-names: Takeshi
+license: MIT
+repository-code: "https://github.com/labphonlab/onsei-gaisetsu-colab"
