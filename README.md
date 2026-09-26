@@ -1,8 +1,22 @@
 # 『音声学概説』Colab Labs
 
+[![Validate notebooks](https://github.com/labphonlab/onsei-gaisetsu-colab/actions/workflows/validate.yml/badge.svg)](https://github.com/labphonlab/onsei-gaisetsu-colab/actions/workflows/validate.yml)
+[![Release](https://img.shields.io/github/v/release/labphonlab/onsei-gaisetsu-colab)](https://github.com/labphonlab/onsei-gaisetsu-colab/releases/latest)
+[![License: MIT / CC BY 4.0](https://img.shields.io/badge/license-MIT%20%2F%20CC%20BY%204.0-blue.svg)](#ライセンス)
+
 **Read → Experience → Manipulate → Experiment → Analyze → Replicate → Extend → Research** を支える実習パッケージです。
 
-1. **Open in Colab** を開く。 2. `Copy to Drive` でコピーする。 3. 上から実行し、`PARAMETER` を変える。 4. 教材用データと研究データを混同しない。
+## 最初の5分
+
+1. 下表の **Open in Colab** を選ぶ。
+2. Colabで「ドライブにコピー」を選び、自分のコピーを作る。
+3. セルを上から順に実行する。
+4. `PARAMETER` と示された値を一つずつ変え、音・図・数値の変化を観察する。
+5. Notebook末尾の「観察 → 仮説 → 検証 → 限界」を記録する。
+
+初めて音声分析を行う場合は[第4章「音を測る」](https://colab.research.google.com/github/labphonlab/onsei-gaisetsu-colab/blob/main/notebooks/ch04_data_acoustics.ipynb)、知覚実験を体験する場合は[第7章「音を言葉として聞く」](https://colab.research.google.com/github/labphonlab/onsei-gaisetsu-colab/blob/main/notebooks/ch07_experiment_speech_perception.ipynb)、自分の研究計画へ進む場合は[Research Builder](https://colab.research.google.com/github/labphonlab/onsei-gaisetsu-colab/blob/main/notebooks/ch99_research_builder.ipynb)から始めるのがおすすめです。
+
+## 章別Notebook
 
 | 章 | 内容 | Lab種別 | Colab |
 |---:|---|---|---|
@@ -22,9 +36,19 @@
 | 14 | 声を売る、声を守る | Data | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/labphonlab/onsei-gaisetsu-colab/blob/main/notebooks/ch14_data_voice_ethics.ipynb) |
 | 99 | Research Builder | Capstone | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/labphonlab/onsei-gaisetsu-colab/blob/main/notebooks/ch99_research_builder.ipynb) |
 
-`notebooks/` は章別Lab、`src/phonlab.py` は共通基盤、`templates/` は最小Lab、`experiments/` はブラウザ実験連携、`demo_data/` はデータ境界、`licenses/` は権利区分です。
+## 構成
 
-模擬データは動作確認専用で、研究結果ではありません。厳密な反応時間測定はjsPsych等で行います。他者から研究目的でデータを集める場合は、事前に倫理手続きを確認してください。
+- `notebooks/`: 章別LabとResearch Builder
+- `src/phonlab.py`: 可視化・音響処理・実験を支える共通基盤
+- `templates/`: 新しいLabを作るための最小テンプレート
+- `experiments/`: ブラウザ実験との連携例
+- `audio/`: 教材用合成音と音源台帳
+- `demo_data/`: 教材用データと研究データの境界説明
+- `licenses/`: 素材ごとの権利区分
+
+## 利用上の注意
+
+模擬データと合成音は、概念理解と動作確認のための教材です。研究結果や実測値として扱わないでください。Colab上の簡易実験は手続きの理解を目的とし、厳密な反応時間測定にはjsPsych等の専用環境が必要です。他者から研究目的でデータを集める場合は、所属機関の倫理手続きとデータ管理方針を事前に確認してください。
 
 
 ## 公開範囲
@@ -39,6 +63,14 @@ MPLBACKEND=Agg python scripts/validate_notebooks.py
 ```
 
 GitHub Actionsでも、14章のNotebookについて必須節、Python構文、全コードセル、付属音源の読み込みを検証する。Research Builderは構造と構文を検証する。
+
+## 引用
+
+教材を授業・研究・成果物で利用した場合は、[`CITATION.cff`](CITATION.cff) の情報を使って引用してください。GitHub画面右側の **Cite this repository** からBibTeX等を取得できます。書籍本文を参照した場合は、書籍も別途引用してください。
+
+## 改善提案と貢献
+
+誤りの報告、教材案、修正提案を歓迎します。個人情報、参加者データ、権利未処理の録音、第三者コーパスをIssueやPull Requestへ添付しないでください。詳しい手順は [`CONTRIBUTING.md`](CONTRIBUTING.md) を参照してください。
 
 ## ライセンス
 

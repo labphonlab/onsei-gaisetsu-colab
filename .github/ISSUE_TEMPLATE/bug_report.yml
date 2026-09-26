@@ -1,0 +1,57 @@
+name: 実行エラー・誤りの報告
+description: Notebookの実行エラー、誤記、リンク切れを報告します
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        個人情報、参加者データ、権利未処理の音声・コーパスは添付しないでください。
+  - type: dropdown
+    id: target
+    attributes:
+      label: 対象
+      options:
+        - 章別Notebook
+        - Research Builder
+        - 共通コード
+        - 音源・データ
+        - README・リンク
+        - その他
+    validations:
+      required: true
+  - type: input
+    id: notebook
+    attributes:
+      label: 対象章・ファイル
+      placeholder: 例：第7章 / notebooks/ch07_experiment_speech_perception.ipynb
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 問題の内容
+      description: 期待した動作と実際の動作を記してください。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 再現手順
+      placeholder: セル番号、変更したPARAMETER、表示されたエラーなど
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: 実行環境
+      placeholder: 例：Google Colab / ローカルPython 3.12
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 公開内容の確認
+      options:
+        - label: 個人情報、参加者データ、権利未処理素材を含めていません。
+          required: true

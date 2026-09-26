@@ -1,0 +1,45 @@
+name: 教材改善・追加Labの提案
+description: 説明、可視化、課題、実験の改善案を提案します
+title: "[Proposal] "
+labels: [enhancement]
+body:
+  - type: input
+    id: chapter
+    attributes:
+      label: 対象章
+      placeholder: 例：第4章「音を測る」
+    validations:
+      required: true
+  - type: textarea
+    id: objective
+    attributes:
+      label: 学習目標
+      description: 学習者が何を観察・操作・説明できるようになるかを記してください。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 提案内容
+      description: 現状の課題と、提案する変更を記してください。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 根拠・参考資料
+      description: 一次資料、教科書の該当箇所、授業での観察などを記してください。
+  - type: textarea
+    id: materials
+    attributes:
+      label: 必要な素材と権利
+      description: データや音源を使う場合は、生成方法・出典・ライセンスを記してください。
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: データ境界の確認
+      options:
+        - label: 模擬データと実測データを区別します。
+          required: true
+        - label: 個人情報、参加者データ、権利未処理素材を公開しません。
+          required: true
