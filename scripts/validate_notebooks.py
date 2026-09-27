@@ -20,6 +20,25 @@ REQUIRED={
     '12': ('Save / Export', '保存／書き出し'),
     '13': ('Technical Information', '技術情報'),
 }
+RESEARCH_REQUIRED={
+    '1': ('Research Question', '研究課題'),
+    '2': ('Background', '背景'),
+    '3': ('Hypothesis', '仮説'),
+    '4': ('Independent Variables', '独立変数'),
+    '5': ('Dependent Variables', '従属変数'),
+    '6': ('Stimuli', '刺激'),
+    '7': ('Participants', '参加者'),
+    '8': ('Experimental Design', '実験計画'),
+    '9': ('Pilot', '予備実験'),
+    '10': ('Data Collection', 'データ収集'),
+    '11': ('Data Cleaning', 'データクリーニング'),
+    '12': ('Analysis', '分析'),
+    '13': ('Visualization', '可視化'),
+    '14': ('Results', '結果'),
+    '15': ('Interpretation', '解釈'),
+    '16': ('Limitations', '限界'),
+    '17': ('Follow-up Study', '後続研究'),
+}
 errors=[]
 for path in NBS:
     obj=json.loads(path.read_text(encoding='utf-8'))
@@ -32,9 +51,19 @@ for path in NBS:
             try: ast.parse(source)
             except SyntaxError as exc: errors.append(f'{path.name}: {exc}')
         elif cell.get('cell_type')=='markdown': markdown.append(source)
-    if path.name.startswith('ch99_'): continue
     joined='\n'.join(markdown)
+    if 'Notebook version: 1.0.1' not in joined:
+        errors.append(f'{path.name}: Notebook version is not 1.0.1')
     headings={line[3:].strip() for line in joined.splitlines() if line.startswith('## ')}
+    if path.name.startswith('ch99_'):
+        for number, titles in RESEARCH_REQUIRED.items():
+            accepted={f'{number}. {title}' for title in titles}
+            if headings.isdisjoint(accepted):
+                errors.append(f"{path.name}: missing section {number} ({' / '.join(titles)})")
+        ethics_titles={'Ethics and licensing gate', '倫理・ライセンス確認'}
+        if headings.isdisjoint(ethics_titles):
+            errors.append(f"{path.name}: missing ethics and licensing section")
+        continue
     for number, titles in REQUIRED.items():
         accepted={f'{number}. {title}' for title in titles}
         if headings.isdisjoint(accepted):
