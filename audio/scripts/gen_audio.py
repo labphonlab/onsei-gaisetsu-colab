@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""『音声学概説』精選版 別冊音源の生成。
+"""『音声学概説』精選版 付属音源の生成。
 
     python3 gen_audio.py            # すべて生成
     python3 gen_audio.py shepard    # 指定したものだけ
